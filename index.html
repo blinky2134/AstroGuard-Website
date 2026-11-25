@@ -192,7 +192,7 @@ Orange:'https://buy.stripe.com/cNi3cvdON5Nwdh6bEX8IU00',
 const offerCheckout=document.getElementById('offerCheckout'),offerCheckoutNote=document.getElementById('offerCheckoutNote');
 function updateOfferCheckout(){const selectedColour=document.querySelector('input[name="astroguard-colour"]:checked').value;const checkoutUrl=stripeLiveLinks[selectedColour];offerCheckout.disabled=!checkoutUrl;offerCheckout.dataset.checkoutUrl=checkoutUrl||'';offerCheckoutNote.textContent=checkoutUrl?`${selectedColour} case selected · live checkout`:`${selectedColour} checkout link hasn’t been added yet.`}
 document.querySelectorAll('input[name="astroguard-colour"]').forEach(input=>input.addEventListener('change',updateOfferCheckout));
-offerCheckout.addEventListener('click',()=>{if(offerCheckout.dataset.checkoutUrl)window.location.href=offerCheckout.dataset.checkoutUrl});
+offerCheckout.addEventListener('click',()=>{if(offerCheckout.dataset.checkoutUrl)window.open(offerCheckout.dataset.checkoutUrl,'_blank','noopener,noreferrer')});
 updateOfferCheckout();
 </script>
 </body>
